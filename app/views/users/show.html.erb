@@ -1,0 +1,22 @@
+<h1><%= @user.name %>のページ</h1>
+<p>メールアドレス: <%= @user.email %></p>
+
+<h1>お気に入りindex</h1>
+<table>
+  <tbody>
+    <% if @favorites.present? %>
+      <% @favorites.each do |favorite| %>
+        <tr>
+          <td><%= favorite.blog.user.name %></td>
+          <td><%= favorite.blog.content %></td>
+          <td><%= link_to 'Show', favorite.blog %>
+        </tr>
+      <% end %>
+    <% else %>
+      <p> No Favorites Posts yet!</p>
+    <% end %>
+
+  </tbody>
+</table>
+
+<%= link_to 'Index', blogs_path %>
